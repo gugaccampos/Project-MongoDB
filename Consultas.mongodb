@@ -121,3 +121,7 @@ db.Estatisticas.updateOne(
    { campeão : 'França'},
    {$addToSet: {"selecao.ataque": "Cristiano Ronaldo"}}
 );
+
+//Usando size, retorna as selecoes com 5 itens em ano_titulos
+db.Selecoes.find( { ano_titulos: { $size: 5 } } );
+
