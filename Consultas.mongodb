@@ -3,11 +3,8 @@ use("DadosCopa")
 // Find para encontrar o grupo A
 db.Grupo.find( { nome: "A" } );
 
- //Rename collections
-db.Grupo.renameCollection("Grupos");
-
 //quantos grupos tem?
-db.Grupos.find().count();
+db.Grupo.find().count();
 
 //retorna todas as seleções que tem mais de 4 títulos
 db.Selecoes.aggregate([{
@@ -16,11 +13,6 @@ db.Selecoes.aggregate([{
     }
 }]).sort({
   titulos: -1
-}).pretty();
-
-db.Estadios.find({$where: function() {
-    return (this.nome == 'Arena Kazan')
-}
 }).pretty();
 
 // Adicionando um título para a seleção da Russia
@@ -44,6 +36,12 @@ db.Confrontos.aggregate( [
     }
   }
 ] )
+
+//Acha a seleção que tem 4 títulos
+db.Selecoes.findOne({titulos: 4});
+
+//Find com $all que retorna a seleção que ganhou as copas de 1958 e 1962
+db.Selecoes.find( { ano_titulos: { $all: [1958, 1962] } } )
 
 //Retorna a média de títulos por seleções
 db.Selecoes.aggregate( [
@@ -143,3 +141,33 @@ db.Selecoes.aggregate( [
    }
 ] )
 
+//Rename collections
+db.Grupo.renameCollection("Grupos");
+
+// Essas funções não conseguem ser aplicadas na nossa versão do mongoDB, mas está aqui a estruturação delas
+/*
+db.Estadios.find({$where: function() {
+    return (this.nome == 'Arena Kazan')
+}
+}).pretty();
+
+db.Grupos.save({
+    _id: db.Grupos.findOne({nome: "D"})._id,
+    nome: "I",
+    selecoes: {
+    "Argentina": '2',
+    "Islândia": '4',
+    "Croácia": '1',
+    "Nigéria": '3'
+  }
+});
+
+db.Selecoes.mapReduce(
+   function() {emit(this.nome,1);},
+   function(titulos) {return Array.sum(titulos);},
+   {
+      query: {titulos: 1},
+      out: "mapReduce"
+   }
+)
+db.mapReduce.find();*/
