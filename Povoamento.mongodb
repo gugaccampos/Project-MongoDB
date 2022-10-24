@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@gugaccampos 
-gugaccampos
-/
-Project-MongoDB
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Project-MongoDB/Povoamento.mongodb
-@onleonidas
-onleonidas edit povoamento
-Latest commit 7082bfb 2 hours ago
- History
- 2 contributors
-@gugaccampos@onleonidas
-611 lines (538 sloc)  10.9 KB
-
 use ("DadosCopa");
 
 db.getCollectionNames().forEach(function(c) { if (c.indexOf("system.") == -1) db[c].drop(); })
