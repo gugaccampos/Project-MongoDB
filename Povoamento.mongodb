@@ -201,7 +201,11 @@ db.Selecoes.insertMany( [
   nome: "Uruguai",
   pt_fase_grupo: 9,
   titulos: 2,
-  grupo: db.Grupo.findOne({nome: 'A'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'A'}, {'_id': 0}),
+  ano_titulos: [
+      1930,
+      1954
+    ]
 },
 
 {
@@ -215,7 +219,10 @@ db.Selecoes.insertMany( [
   nome: "Espanha",
   pt_fase_grupo: 5,
   titulos: 1,
-  grupo: db.Grupo.findOne({nome: 'B'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'B'}, {'_id': 0}),
+  ano_titulos: [
+      2010
+    ]
 },
 
 {
@@ -236,7 +243,11 @@ db.Selecoes.insertMany( [
   nome: "França",
   pt_fase_grupo: 7,
   titulos: 2,
-  grupo: db.Grupo.findOne({nome: 'C'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'C'}, {'_id': 0}),
+  ano_titulos: [
+      1998,
+      2018
+    ]
 },
 
 {
@@ -264,7 +275,11 @@ db.Selecoes.insertMany( [
   nome: "Argentina",
   pt_fase_grupo: 4,
   titulos: 2,
-  grupo: db.Grupo.findOne({nome: 'D'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'D'}, {'_id': 0}),
+  ano_titulos: [
+      1978,
+      1986
+    ]
 },
 
 {
@@ -292,7 +307,14 @@ db.Selecoes.insertMany( [
   nome: "Brasil",
   pt_fase_grupo: 7,
   titulos: 5,
-  grupo: db.Grupo.findOne({nome: 'E'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'E'}, {'_id': 0}),
+  ano_titulos: [
+      1958,
+      1962,
+      1970,
+      1994,
+      2002
+  ]
 },
 {
   nome: "Suiça",
@@ -316,7 +338,13 @@ db.Selecoes.insertMany( [
   nome: "Alemanha",
   pt_fase_grupo: 3,
   titulos: 4,
-  grupo: db.Grupo.findOne({nome: 'F'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'F'}, {'_id': 0}),
+  ano_titulos: [
+      1954,
+      1974,
+      1990,
+      2014
+    ]
 },
 {
   nome: "México",
@@ -362,7 +390,10 @@ db.Selecoes.insertMany( [
   nome: "Inglaterra",
   pt_fase_grupo: 6,
   titulos: 1,
-  grupo: db.Grupo.findOne({nome: 'G'}, {'_id': 0})
+  grupo: db.Grupo.findOne({nome: 'G'}, {'_id': 0}),
+  ano_titulos: [
+      1966
+    ]
 },
 
 {
