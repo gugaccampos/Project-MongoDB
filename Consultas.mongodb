@@ -6,10 +6,10 @@ db.Grupo.find( { nome: "A" } );
 //quantos grupos tem?
 db.Grupo.find().count();
 
-//retorna todas as seleções que tem mais de 4 títulos
+//retorna todas as seleções que tem mais de 0 títulos
 db.Selecoes.aggregate([{
     $match: {
-      titulos: {$gt: 4}
+      titulos: {$gt: 0}
     }
 }]).sort({
   titulos: -1
@@ -20,10 +20,14 @@ db.Selecoes.update(
 { nome: 'Russia'},
 {$set: { titulos : 1}});
 
+db.Selecoes.find({nome: 'Russia'})
+
 // Desfazendo alteração anterior
 db.Selecoes.update(
 { nome: 'Russia'},
 {$set: { titulos : 0}});
+
+db.Selecoes.find({nome: 'Russia'})
 
 //Group que retorna quantidade de gols dos playoffs
 db.Confrontos.aggregate( [
@@ -101,6 +105,8 @@ db.Confrontos.aggregate(
    ]
 )
 
+db.Estatisticas.find();
+
 //retorna mais informaçoes sobre o campeão 
 db.Estatisticas.aggregate( [
    {
@@ -119,6 +125,8 @@ db.Estatisticas.updateOne(
    { campeão : 'França'},
    {$addToSet: {"selecao.ataque": "Cristiano Ronaldo"}}
 );
+
+db.Estatisticas.find();
 
 //Usando size, retorna as selecoes com 5 itens em ano_titulos
 db.Selecoes.find( { ano_titulos: { $size: 5 } } );
