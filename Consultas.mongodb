@@ -25,12 +25,12 @@ db.Estadios.find({$where: function() {
 
 // Adicionando um título para a seleção da Russia
 db.Selecoes.update(
-{ _id : ObjectId('63522d324b2f9088fea36bc8')},
+{ nome: 'Russia'},
 {$set: { titulos : 1}});
 
 // Desfazendo alteração anterior
 db.Selecoes.update(
-{ _id : ObjectId('63522d324b2f9088fea36bc8')},
+{ nome: 'Russia'},
 {$set: { titulos : 0}});
 
 //Group que retorna quantidade de gols dos playoffs
@@ -77,7 +77,7 @@ db.Selecoes.find().sort({pt_fase_grupo: -1}).limit(3)
 //Deletando um campo e usando a $exists para
 //detectar quais itens em Selecoes está sem o atributo 'titulos'
 db.Selecoes.update(
-{ _id : ObjectId('63522d324b2f9088fea36bc8')},
+{ nome: 'Japão'},
 {$unset: { titulos : 0}});
 
 db.Selecoes.find( { titulos: { $exists: false } } )
@@ -118,6 +118,6 @@ db.Estatisticas.aggregate( [
 
 // adiciona Cristiano Ronaldo ao array de atacantes da selecao de ouro, simplismente pq ele merece
 db.Estatisticas.updateOne(
-   { _id : ObjectId('635321f712753ec44aa862f9')},
+   { campeão : 'França'},
    {$addToSet: {"selecao.ataque": "Cristiano Ronaldo"}}
 );
