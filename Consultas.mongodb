@@ -6,10 +6,10 @@ db.Grupo.find( { nome: "A" } );
 //quantos grupos tem?
 db.Grupos.find().count();
 
-//retorna as seleções que tem mais de 0 títulos
+//retorna todas as seleções que tem mais de 4 títulos
 db.Selecoes.aggregate([{
     $match: {
-      titulos: {$gt: 0}
+      titulos: {$gt: 4}
     }
 }]).sort({
   titulos: -1
