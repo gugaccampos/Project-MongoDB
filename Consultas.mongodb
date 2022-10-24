@@ -125,3 +125,21 @@ db.Estatisticas.updateOne(
 //Usando size, retorna as selecoes com 5 itens em ano_titulos
 db.Selecoes.find( { ano_titulos: { $size: 5 } } );
 
+//retorna os titulos ganhos depois dos anos 2000
+db.Selecoes.aggregate( [
+   {
+      $project: {
+         ano_titulos: {
+            $filter: {
+               input: "$ano_titulos",
+               as: "titulo",
+               cond: { $and:[
+                  { $gte: [ "$$titulo", 2000 ]},
+                  ]
+               }
+            }
+         }
+      }
+   }
+] )
+
